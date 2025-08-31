@@ -1,4 +1,18 @@
 /data/
 .env
 .DS_Store
+
+# Ignore virtual environment
+venv/
+
+# Ignore generated data and reports
+data/cleaned_sales_data.csv
+reports/
+
+data/*.csv
+reports/*.html
+
+# Python cache
 __pycache__/
+*.py[cod]
+*$py.class
