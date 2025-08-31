@@ -8,6 +8,10 @@ def load_and_clean(filepath):
     df.columns = [col.strip().lower().replace(' ', '_') for col in df.columns]
     print("Columns after cleaning:", df.columns.tolist())
 
+    # Convert 'date' column to datetime
+    if 'date' in df.columns:
+        df['date'] = pd.to_datetime(df['date'], errors='coerce')
+
     # Validate required column
     if 'sales' not in df.columns:
         raise ValueError(f"Expected column 'sales' not found. Available columns: {df.columns.tolist()}")
