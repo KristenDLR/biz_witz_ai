@@ -16,4 +16,8 @@ def load_and_clean(filepath):
     df.dropna(subset=['sales'], inplace=True)
     print(f"Cleaned data: {df.shape[0]} rows remaining")
 
+    # Save cleaned version
+    df.to_csv("data/cleaned_sales_data.csv", index=False)
+    print("📁 Cleaned data saved to data/cleaned_sales_data.csv")
+
     return df
