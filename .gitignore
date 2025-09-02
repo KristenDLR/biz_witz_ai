@@ -11,6 +11,7 @@ reports/
 
 data/*.csv
 reports/*.html
+vector_store/
 
 # Python cache
 __pycache__/
