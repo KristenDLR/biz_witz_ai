@@ -7,15 +7,19 @@ def generate_profile_report(df, output_path="reports/eda_report.html"):
 
 
 def summarize_eda(df):
+    monthly_sales_raw = df.groupby(df['date'].dt.to_period('M'))['sales'].sum()
+    monthly_sales = {str(period): float(sales) for period, sales in monthly_sales_raw.items()}
+
     return {
         "top_products": df['product'].value_counts().head(3).to_dict(),
-        "avg_sales": df['sales'].mean(),
-        "monthly_sales": df.groupby(df['date'].dt.to_period('M'))['sales'].sum().to_dict(),
+        "avg_sales": float(df['sales'].mean()),
+        "monthly_sales": monthly_sales,
         "satisfaction_distribution": df['customer_satisfaction'].value_counts().to_dict(),
         "age_stats": {
-            "mean": df['customer_age'].mean(),
-            "std": df['customer_age'].std(),
-            "min": df['customer_age'].min(),
-            "max": df['customer_age'].max()
+            "mean": float(df['customer_age'].mean()),
+            "std": float(df['customer_age'].std()),
+            "min": int(df['customer_age'].min()),
+            "max": int(df['customer_age'].max())
         }
     }
+
