@@ -1,7 +1,7 @@
 from modules.config import OPENAI_API_KEY
 from modules.data_loader import load_and_clean
-from modules.eda_report import generate_profile_report, summarize_eda
-from modules.eda_summary import save_summary_to_json
+from modules.eda_report import generate_profile_report
+from modules.eda_summary import summarize_eda, save_summary_to_json, validate_summary_structure
 from modules.vector_store import load_and_chunk_summary, build_vector_store, load_vector_store
 from modules.rag_chain import get_retriever, build_rag_chain
 import os
@@ -13,6 +13,8 @@ generate_profile_report(df)
 
 # Generate and save summary
 summary = summarize_eda(df)
+validate_summary_structure(summary)
+save_summary_to_json(summary)
 # print(summary)
 save_summary_to_json(summary)
 
