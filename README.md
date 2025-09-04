@@ -25,7 +25,7 @@ The assistant responds with data-backed answers, charts, and summaries, making b
 | **OpenAI API**       | Natural language understanding and generation                        |
 | **Pandas**           | Data cleaning, transformation, and profiling                         |
 | **YData Profiling**  | Automated EDA report generation                                      |
-| **FAISS**            | Efficient vector storage and retrieval                               |
+| **Choma**            | Efficient vector storage and retrieval                               |
 | **Streamlit**        | Interactive web dashboard and user interface                         |
 | **Plotly/Matplotlib**| Data visualization for trends and summaries                          |
 
